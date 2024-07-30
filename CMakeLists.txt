@@ -49,9 +49,22 @@ if(NOT raylib_POPULATED)
 endif()
 
 # Your game
-add_executable(${PROJECT_NAME} src/main.cpp)
+add_executable(${PROJECT_NAME} src/snake-game.cpp)
 target_link_libraries(${PROJECT_NAME} raylib)
 
 if(EMSCRIPTEN)
-    set_target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS "-s ASYNCIFY")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -s USE_GLFW=3 -s ASSERTIONS=1 -s WASM=1 -s ASYNCIFY")
+    set(CMAKE_EXECUTABLE_SUFFIX ".html")
+    set(PLATFORM "Web" CACHE STRING "Platform" FORCE)
+
+    # Add this line to package assets with the Emscripten build
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} --preload-file ${CMAKE_SOURCE_DIR}/assets@/assets")
+endif()
+
+# Copy assets to build directory
+file(COPY ${CMAKE_SOURCE_DIR}/assets DESTINATION ${CMAKE_BINARY_DIR})
+
+# If compiling for Web, also copy assets to where the HTML file is
+if(EMSCRIPTEN)
+    file(COPY ${CMAKE_SOURCE_DIR}/assets DESTINATION ${CMAKE_BINARY_DIR}/assets)
 endif()
