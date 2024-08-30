@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.11)
-project(snake-game)
+project(bunny-fruit)
 
 # Generate compile_commands.json
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
@@ -49,7 +49,7 @@ if(NOT raylib_POPULATED)
 endif()
 
 # Your game
-add_executable(${PROJECT_NAME} src/snake-game.cpp)
+add_executable(${PROJECT_NAME} src/bunny-fruit.cpp)
 target_link_libraries(${PROJECT_NAME} raylib)
 
 if(EMSCRIPTEN)
