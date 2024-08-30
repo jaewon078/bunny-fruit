@@ -181,7 +181,7 @@ static bool CheckSelfCollision(const Character& character);
 static float Lerp(float a, float b, float t);
 
 int main() {
-    InitWindow(screenWidth, screenHeight, "Snake gameeeeee");
+    InitWindow(screenWidth, screenHeight, "Bunny Froot");
 
     // Load textures
     tilesetTexture = LoadTexture("assets/textures/grass_tileset.png");
