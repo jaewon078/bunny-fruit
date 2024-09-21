@@ -1,4 +1,4 @@
-# Bunny Fruit (sorry I am not that creative with names)
+# Bunny Fruit
 
 ![screenshot](screenshot.png)
 
