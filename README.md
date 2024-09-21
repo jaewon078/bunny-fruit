@@ -2,8 +2,6 @@
 
 ![screenshot](screenshot.png)
 
-(sorry not too great at taking screenshots either)
-
 
 # Compile Instructions:
 Using Cmake:
